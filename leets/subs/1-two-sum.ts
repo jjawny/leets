@@ -7,6 +7,8 @@
  * #hashmaps
  */
 function twoSum(nums: number[], target: number): number[] {
+  if (nums.length === 0) return [];
+
   // 2. Instead of using a nested loop to compare values, check a fast cache
   //    Fast cache = hashmap w O(1) ops
   //    KV = <num, index>, why? we know the diffs to lookup, and want the index back
