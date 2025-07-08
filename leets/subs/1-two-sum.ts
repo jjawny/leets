@@ -1,8 +1,8 @@
 /**
  * Run through (see "#"s) using twoSum([2,7,11,15], 9)
  *
- * TIME: is O(n) as worst-case we loop through all nums
- * MEMORY: is O(n) as worst-case we add every number to the cache
+ * TIME: Worst-case O(n) when we loop through all nums
+ * MEMORY: Worst-case O(1) when we add every number to the cache
  *
  * #hashmaps
  */
