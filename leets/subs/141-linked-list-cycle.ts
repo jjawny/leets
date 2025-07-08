@@ -17,16 +17,14 @@ function hasCycle(head: ListNode | null): boolean {
   let hare: ListNode | null = head?.next;
 
   // 2. Run until they collide or either has an end/tail (not a cycle)
-  while (tortoise?.next && hare?.next) {
+  while (tortoise.next && hare.next?.next) {
     // # 1st iteration positions: t = 0, h = 1
     // # 2nd iteration positions: t = 1, h = 3
     // # 3rd iteration positions: t = 2, h = 2 (looped back) a MATCH!
-    if (tortoise.val === hare.val) {
-      return true;
-    }
+    if (tortoise === hare) return true;
 
     tortoise = tortoise.next;
-    hare = hare.next?.next;
+    hare = hare.next.next;
   }
 
   return false;
