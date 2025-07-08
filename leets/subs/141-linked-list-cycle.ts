@@ -6,7 +6,7 @@ import { ListNode } from "../shared/ListNode";
  * TIME: Worst-case O(n) when we reach the end of a singly linked list (hare reaches at O(n/2) but we drop the constant so O(n))
  * MEMORY: Worst-case O(1) since we only use 2 pointers
  *
- * #linkedlists
+ * #linked-lists
  */
 function hasCycle(head: ListNode | null): boolean {
   // 3. Guard for edge-case: at least 2 nodes needed for a cycle
