@@ -1,0 +1,32 @@
+/**
+ * Run through (see "#"s) using twoSum([2,7,11,15], 9)
+ *
+ * TIME: is O(n) as worst-case we loop through all nums
+ * MEMORY: is O(n) as worst-case we add every number to the cache
+ *
+ * #hashmaps
+ */
+function twoSum(nums: number[], target: number): number[] {
+  // 2. Instead of using a nested loop to compare values, check a fast cache
+  //    Fast cache = hashmap w O(1) ops
+  //    KV = <num, index>, why? we know the diffs to lookup, and want the index back
+  const cache = new Map<number, number>();
+
+  // 1. We will need to loop over nums at least once
+  for (let i = 0; i < nums.length; i++) {
+    // 3. Check the cache if the desired num exists/his index
+    const num = nums[i]; // # 2nd iteration, num = 7
+    const diff = target - num; // # 9 - 7 = 2
+    const diffIndex = cache.get(diff); // # by 2nd iteration, cache has num '2' at pos 0
+    if (diffIndex !== undefined) {
+      // # diffIndex is valid but 0, so don't use falsey check
+      return [i, diffIndex]; // # return [0,1]
+    }
+
+    // 4. No match? save in cache for future iterations to lookip
+    cache.set(num, i);
+  }
+
+  // 5. No matches
+  return [];
+}
