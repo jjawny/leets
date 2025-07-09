@@ -42,10 +42,14 @@ class Solution:
         #   ()    POP!
         #   _     EMPTY!
         for char in s:
-            canClose = char in pairs and stack and stack[-1] == pairs[char]
-            if canClose:
-                stack.pop()
-                continue
+            shouldClose = char in pairs
+            if shouldClose:
+                canClose = stack and stack[-1] == pairs[char]
+                if canClose:
+                    stack.pop()
+                    continue
+                else:
+                    return False
             
             stack.append(char)
 
