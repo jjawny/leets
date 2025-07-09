@@ -1,12 +1,12 @@
 from typing import Optional
-from leets.shared.ListNode import ListNode
+from leets.shared.list_node import ListNode
 
 class Solution:
     def hasCycle(self, head: Optional[ListNode]) -> bool:
         """
         See TS version for Big O
 
-        #hashmaps
+        #linked-lists
         """
         if not head or not head.next:
             return False
