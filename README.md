@@ -8,3 +8,4 @@ filter by topic using tags:
 - #sliding-window
 - #two-pointers
 - #binary-search
+- #stacks
