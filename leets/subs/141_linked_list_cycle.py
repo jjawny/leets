@@ -6,7 +6,7 @@ class Solution:
         """
         See TS version for Big O
 
-        #linked-lists
+        ##linked-lists
         """
         if not head or not head.next:
             return False

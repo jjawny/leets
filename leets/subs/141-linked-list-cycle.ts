@@ -1,12 +1,12 @@
 import { ListNode } from "../shared/ListNode";
 
 /**
- * Run through (see "#"s) using [0 -> 1 -> 2 -> 3 -> back to 1]
+ * Run through (see "x"s) using [0 -> 1 -> 2 -> 3 -> back to 1]
  *
  * TIME: Worst-case O(n) when we reach the end of a singly linked list (hare reaches at O(n/2) but we drop the constant so O(n))
  * MEMORY: Worst-case O(1) since we only use 2 pointers
  *
- * #linked-lists
+ * ##linked-lists
  */
 function hasCycle(head: ListNode | null): boolean {
   // 3. Guard for edge-case: at least 2 nodes needed for a cycle
@@ -18,9 +18,9 @@ function hasCycle(head: ListNode | null): boolean {
 
   // 2. Run until they collide or either has an end/tail (not a cycle)
   while (tortoise.next && hare.next?.next) {
-    // # 1st iteration positions: t = 0, h = 1
-    // # 2nd iteration positions: t = 1, h = 3
-    // # 3rd iteration positions: t = 2, h = 2 (looped back) a MATCH!
+    // x 1st iteration positions: t = 0, h = 1
+    // x 2nd iteration positions: t = 1, h = 3
+    // x 3rd iteration positions: t = 2, h = 2 (looped back) a MATCH!
     if (tortoise === hare) return true;
 
     tortoise = tortoise.next;

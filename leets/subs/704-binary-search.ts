@@ -2,7 +2,7 @@
  * TIME: Worst-case O(log n) because each loop halves the remaining problem size
  * MEMORY: Worst-case O(1) since we only use 2 pointers and everything else is destroyed after each loop (no bundling)
  *
- * #sliding-window #two-pointers #binary-search
+ * ##sliding-window ##two-pointers ##binary-search
  */
 function search(nums: number[], target: number): number {
   // 1. Create a window using 2 pointers (num indexes)
