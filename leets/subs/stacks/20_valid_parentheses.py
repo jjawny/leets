@@ -4,7 +4,7 @@ class Solution:
         TIME: Always O(n) - loop through each char
         MEMORY: Worst-case O(n) - no brackets close
 
-        ##stacks
+        ##stacks ##hashmaps
         """
         # OPTIMIZATIONS:
         # Use early guards to avoid hitting the O(n) loop
