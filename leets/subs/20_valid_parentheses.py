@@ -6,6 +6,19 @@ class Solution:
 
         ##stacks
         """
+        # OPTIMIZATIONS:
+        # Use early guards to avoid hitting the O(n) loop
+        #   We can check if s is immediately invalid:
+        #  - Must start with an open bracket
+        #  - Must end with a close bracket
+        #  - Must have an even length (all brackets should come in pairs)
+        hasOpenBracketFirst = s and s[0] in "({["
+        hasCloseBracketLast = s and s[-1] in ")}]"
+        hasEvenLength = len(s) % 2 == 0
+
+        if not (hasOpenBracketFirst and hasCloseBracketLast and hasEvenLength):
+            return False
+
         # A string is just a list (as in we should loop over chars)
         # We will use another DS while we loop as a mirror of the input (that we can mutate)
         # We will add each open bracket, but as soon as we add a close bracket we 
