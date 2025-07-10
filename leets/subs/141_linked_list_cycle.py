@@ -1,5 +1,5 @@
 from typing import Optional
-from leets.shared.list_node import ListNode
+from leets.types.list_node import ListNode
 
 class Solution:
     def hasCycle(self, head: Optional[ListNode]) -> bool:

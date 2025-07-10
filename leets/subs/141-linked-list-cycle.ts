@@ -1,4 +1,4 @@
-import { ListNode } from "../shared/ListNode";
+import { ListNode } from "../types/ListNode";
 
 /**
  * Run through (see "x"s) using [0 -> 1 -> 2 -> 3 -> back to 1]
