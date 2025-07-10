@@ -30,6 +30,8 @@ class Solution:
             # Conditions for all next valid possible permutations
             # Each recursive call branches down 2 paths: add opening or closing bracket
             # Always run opening bracket case first as starting w a closing bracket is invalid
+            # Fyi: strings are immutable so we must create new strings anyway
+            #       meaning we don't need to push n pop for mem perf (see template)
             if n_opened < n:
                 backtrack(string + "(", n_opened + 1, n_closed)
             if n_closed < n_opened:
