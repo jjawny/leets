@@ -12,7 +12,7 @@ class Solution:
             - But because we restrict to valid perms, this becomes Catalan number of possible states
             - so space/time is O(4ⁿ / √n)
 
-        ##stacks
+        ##stacks ##backtracking
         """
         result = []
 
