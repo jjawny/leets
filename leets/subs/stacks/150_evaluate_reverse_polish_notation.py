@@ -27,24 +27,24 @@ class Solution:
             if num_1 is None or num_2 is None:
                 continue
             
-            res = None
+            result = None
 
             match token:
                 case "+":
-                    res = num_1 + num_2
+                    result = num_1 + num_2
                 case "-":
-                    res = num_1 - num_2
+                    result = num_1 - num_2
                 case "*":
-                    res = num_1 * num_2
+                    result = num_1 * num_2
                 case "/":
                     # "The division between two integers always truncates toward zero."
                     #   aka we need to ensure floats are rounded down to ints
-                    res = int(num_1 / num_2)
+                    result = int(num_1 / num_2)
 
-            print(f"{num_1} {token} {num_2} = {res}")
+            print(f"{num_1} {token} {num_2} = {result}")
             
-            if res is not None:
-              stack.append(res)
+            if result is not None:
+              stack.append(result)
         return stack.pop() if stack else None
 
 def safe_pop(stack: List) -> int | None:
