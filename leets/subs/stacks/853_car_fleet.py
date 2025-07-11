@@ -4,10 +4,14 @@ from typing import List
 class Solution:
     def carFleet(self, target: int, positions: List[int], speeds: List[int]) -> int:
         """
-        TIME: Always O(n) as we loop over all cars (sorted Python 3.11+ costs O(n log n))
-        MEMORY: Always O(n) to hold n list of cars (tuples of position and speed) and the fleetTTA stack if no fleets merge
+        TIME: Always O(n log n):
+            - Because of the sorting call to get [cars]
+            - Sorted Python 3.11+ uses Powersort, costing O(n log n)
+        MEMORY: Always O(n) to store:
+            - cars: list of n tuples
+            - fleetTTA: stack worst-case n items when no fleets merge
 
-        ##stacks ##backtracking
+        ##stacks
         """
 
         # Mental model:
