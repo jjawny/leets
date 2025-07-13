@@ -3,7 +3,9 @@ class Solution:
         """
         TIME: Always O(n) because we split the path string and join back
         MEMORY: Always O(n) because we store the parts, which scales matching the input size
-        OPTIMIZED: Same Big Os but using split (like join) is written in C and pre-compiled vs iterating to concat (each loop needs to be interpreted on the fly)
+        OPTIMIZED: Same Big Os but using split instead of concatenating strings manually
+                    Why? split (like join) is written in C and pre-compiled vs the manual approach
+                     (each concat op needs to go through the interpreter...)
 
         ##stacks
         """
