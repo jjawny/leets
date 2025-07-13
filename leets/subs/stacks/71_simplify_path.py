@@ -1,19 +1,11 @@
 class Solution:
     def simplifyPath(self, path: str) -> str:
         """
-        TIME: Always O(n) because we split the path string and join back
-        MEMORY: Always O(n) because we store the parts, which scales matching the input size
+        TIME: Always O(n) because we loop over the entire path
+        MEMORY: Always O(n) because we store the parts in a stack, which scales matching the input size
 
         ##stacks
         """
-        # DIGESTING:
-        #   - only the standard dots are allowed '.' and '..'
-        #   - multiple slashes are squashed to '/'
-        #   - must start w a '/' for absolute path
-        #   - the file/final portion must not end w a '/' unless root
-        #   - TLDR we need to clean a given path based on these rules ^
-        #   - We will split the path by the slashes
-        
         root = "/"
         if path == root:
             return path
@@ -25,27 +17,32 @@ class Solution:
         # [/usr/../j/] <--- TRIM END: last char? skip if '/'
         # [/usr/j]
         # Response is "/usr/j"
-        parts = path.split("/")
-        partsCleaned = []
+        stack = [] # parts are pushed, not always single chars (part can be single though)
+        curr_part = ""
 
-        for idx, part in enumerate(parts):
-            print("".join(partsCleaned))
+        for idx, char in enumerate(path):
+            # print(f'[{ ", ".join(stack) }]')
 
-            # 1. HANDLE PERIODS
-            # Ignore if specifying current dir again
-            if part == "." or part == "":
+            # 1. Handle normal chars "abc123..."
+            if char != "/":
+                curr_part += char
+
+            # 2. Skip the rest unless we are dealing w a slash OR the final part
+            if char != "/" and idx != len(path) - 1:
                 continue
-            # Pop previous/parent dir if walking back
-            if part == "..":
-                if partsCleaned:
-                    partsCleaned.pop()
-                continue
-            
-            # 2. HANDLE SLASHES
-            isPreviouslySlash = partsCleaned and partsCleaned[-1] == "/";
-            isLastPart = idx == len(parts) - 1
-            if part == "/" and (isPreviouslySlash or isLastPart):
-                continue
-            
-            partsCleaned.append(part)
-        return "/" + "/".join(partsCleaned) # prefix "/" because we lose the inital one during split
+
+            # print(f"Encountered a slash or this is the final part: {curr_part}")
+            # 3. Skip if empty or we're traversing to the current dir
+            if curr_part == ".":
+                curr_part = ""
+            # 4. Traverse back to parent dir
+            elif curr_part == "..":
+                if stack:
+                    stack.pop()
+                curr_part = ""
+            # 5. Push the valid part
+            elif curr_part != "":
+                stack.append(curr_part)
+                curr_part = ""
+    
+        return "/" + "/".join(stack)
