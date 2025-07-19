@@ -9,25 +9,21 @@ from leets.types.tree_node import TreeNode
 #         self.right = right
 
 class Solution:
-    def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+    def preorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
         """
-        TIME: O(n) as we visit each node
-        MEMORY: O(n) as we capture all nodes again in the result (and visited)
+        Same as 94_binary_tree_inorder_traversal but order of traversal (when we capture the node) is different
 
         ##dfs ##bst ##recursion
         """
-        # Qs is basically just the DFS template (recursion strat)
         result: List[int] = []
         visited: List[TreeNode] = []
 
         def dfs(node: Optional[TreeNode]):
             if not node or node in visited:
                 return
+            result.append(node.val)
             visited.append(node)
             dfs(node.left)
-            result.append(node.val)
             dfs(node.right)
-
         dfs(root)
-
         return result
