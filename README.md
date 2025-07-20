@@ -1,6 +1,8 @@
 # 💭 leets
-history of leets (from Blind75 n NeetCode 150) heavily documented w thought process - switched to Python midway cus devs should be able to pick up new langs in their sleep
+**History of leets** infused w more thought process (comments)
 
-filters are double-hashtaged (##) to avoid colliding w Python comments
+**Filters** are double-hashtagged (##) to avoid colliding w comments
 
-strat? focusing on the 99%, the DS&A w the highest ROI, understand concepts deeply >>> memorization
+**Grouped** by the 8 patterns used 99% of the time
+
+**Strat?** focusing on the DSA w [the highest ROI, Blind75, NeetCode150] + understand the concepts deeply >>> memorization
