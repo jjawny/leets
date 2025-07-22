@@ -3,6 +3,13 @@ from typing import List
 
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        """
+        TIME: Always O(n * m log m)
+                where m is the maximum length of a string
+                and we perform a join/sort (at m log m) for each n
+        SPACE: Always O(n * m) as we store all strings in the hashmap (* m because string lengths vary)
+        ##hashmap ##hashtable
+        """
         # Use a hashmap to keep track of annagram lists
         # Loop s in strs:
         #   Create a sorted s (for hashmap lookup)
