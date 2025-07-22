@@ -28,18 +28,16 @@ class Solution:
             return other_chars_allowed_count <= k
 
         for right in range(len(s)):
-            char = s[right]
-            hashmap_wrapper.increment(char)
-            substring_len = right - left # +1 to include curr char (as 0-based indexed)
-            max_substring_len = max(max_substring_len, substring_len)
+            hashmap_wrapper.increment(s[right])
+
             # Heal the window if it's invalid, moving the start/left until valid again
             while not is_valid(left, right):
                 hashmap_wrapper.decrement(s[left])
                 left += 1
 
-        # Capture the final substring
-        max_substring_len = max(max_substring_len, len(s) - left)
-
+            substring_len = (right - left) + 1 # +1 to include curr char (as 0-based indexed)
+            max_substring_len = max(max_substring_len, substring_len)
+            
         return max_substring_len
 
 # Use a wrapper to simplify our main algo
