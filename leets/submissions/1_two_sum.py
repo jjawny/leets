@@ -10,9 +10,11 @@ class Solution:
         ##hashmaps
         """
         cache = {}
+        
         for i, num in enumerate(nums):
             diff = target - num
             if diff in cache:
                 return [i, cache[diff]]
             cache[num] = i
+        
         return []
