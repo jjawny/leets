@@ -1,6 +1,6 @@
 /**
  * TIME: Worst-case O(n) when we loop through all nums
- * MEMORY: Worst-case still O(1) when we add every number to the cache
+ * MEMORY: Worst-case O(n) when we add all nums to the cache
  *
  * ##hashmaps
  */
